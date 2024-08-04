@@ -65,10 +65,43 @@ namespace ChurchPlus_v1._0.DAL
                     new UserRole
                     {
                         Id = 2,
-                        Name = "Standard user",
+                        Name = "Trustee",
+                        CreatedBy = 1,
+                        DateCreated = DateTime.Now
+                    },
+                     new UserRole
+                    {
+                        Id = 3,
+                        Name = "Treasurer",
                         CreatedBy = 1,
                         DateCreated = DateTime.Now
                     }
+                );
+                modelBuilder
+                .Entity<CauseCategory>()
+                .HasData(
+                    new CauseCategory{Id = 1, CauseName="Project", CreatedBy = 1, DateCreated =DateTime.Now, Status = 1},
+                    new CauseCategory{Id = 2, CauseName="Charity", CreatedBy = 1, DateCreated =DateTime.Now, Status = 1},
+                    new CauseCategory{Id = 3, CauseName="Church service", CreatedBy = 1, DateCreated =DateTime.Now, Status = 1},
+                    new CauseCategory{Id = 4, CauseName="Other event", CreatedBy = 1, DateCreated =DateTime.Now, Status = 1}
+                );
+                modelBuilder
+                .Entity<OfferingGroup>()
+                .HasData( 
+                    new OfferingGroup {Id = 1, GroupName = "Sunday service", CreatedBy = 1, DateCreated =DateTime.Now,},
+                    new OfferingGroup {Id = 2, GroupName = "Wednesday service", CreatedBy = 1, DateCreated =DateTime.Now,},
+                    new OfferingGroup {Id = 3, GroupName = "Friday service", CreatedBy = 1, DateCreated =DateTime.Now,}
+                );
+
+                modelBuilder
+                .Entity<RecordStatus>()
+                .HasData(
+                    new RecordStatus {Id = 1, Name ="Active", CreatedBy = 1, DateCreated = DateTime.Now},
+                    new RecordStatus {Id = 2, Name ="Discarded", CreatedBy = 1, DateCreated = DateTime.Now},
+                    new RecordStatus {Id = 3, Name ="Disabled", CreatedBy = 1, DateCreated = DateTime.Now},
+                    new RecordStatus {Id = 4, Name ="Approved", CreatedBy = 1, DateCreated = DateTime.Now},
+                    new RecordStatus {Id = 5, Name ="Declined", CreatedBy = 1, DateCreated = DateTime.Now},
+                    new RecordStatus {Id = 6, Name ="Pending", CreatedBy = 1, DateCreated = DateTime.Now}
                 );
 
         }

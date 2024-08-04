@@ -10,6 +10,7 @@ namespace ChurchPlus_v1._0.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int PledgeId { get; set; }
+        public string PledgeBy {get; set; }
         public double AmountPledged { get; set; }
         public double ActualAmountFulfilled { get; set; }
         public DateTime DatePledged { get; set; }
@@ -17,8 +18,10 @@ namespace ChurchPlus_v1._0.Models
         public int ReceivedBy { get; set; }
         public int ApprovedBy { get; set; }
         public DateTime DateApproved { get; set; }
+        public int CreatedBy { get; set; }
         public DateTime DateCreated {get; set;}  
         public int Status { get; set; }
         public DateTime? DateModified { get; set; }
+        public int ModifiedBy { get; set; }
     }
 }

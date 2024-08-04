@@ -8,14 +8,17 @@ namespace ChurchPlus_v1._0.Middleware
     public interface IFundsManager
     {
         string[] AddPledge(Pledge pledge);
-        string[] RemovePledge(int id);
+        string[] RemovePledge(int id, int removeby);
         string[] UpdatePledge(Pledge plege);
         string[] AddExpense(Expense expense);
-        string[] RemoveExpense(int id);
+        string[] RemoveExpense(int id, int removeby);
         string[] UpdateExpense(Expense expense);
         string[] AddOffering(Offering offering);
-        string[] RemoveOffering(int id);
+        string[] RemoveOffering(int id, int removeby);
         string[] UpdateOffering(Offering offering);
+        List<ResponseObject> ApproveOffering(int[] offeringid, int approveby);
+        List<ResponseObject> ApprovePledge(int[] pledgeid, int approveby);
+        List<ResponseObject> ApproveExpense(int[] expenseid, int approveby);
     }
     public interface IProfileManager
     {
@@ -24,6 +27,9 @@ namespace ChurchPlus_v1._0.Middleware
         string[] RemoveProfile(VMUserProfile profile, int deleteby);
         List<UserProfileDetail> ListProfileDetails();
         UserProfileDetail FindUser(int id);
-        
+    }
+    public interface ISettings
+    {
+        List<OfferingGroup> GetOfferingGroups();
     }
 }

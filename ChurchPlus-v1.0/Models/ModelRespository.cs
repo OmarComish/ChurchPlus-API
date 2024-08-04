@@ -47,4 +47,10 @@ namespace ChurchPlus_v1._0.Models
         public DateTime? LastSignedOnDate { get; set; }
 
     }
+    public class ResponseObject
+    {
+        public int Id { get; set;}
+        public string Status { get; set; }
+        public string Message { get; set; }
+    }
 }

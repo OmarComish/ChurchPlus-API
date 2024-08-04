@@ -15,6 +15,8 @@ namespace ChurchPlus_v1._0.Models
         public DateTime CollectionDate { get; set; }
         public int ServiceSession { get; set; }
         public int CheckedBy { get; set; }
+        public DateTime DateCreated { get; set; }
+        public int CreatedBy {get; set; }
         public DateTime DateChecked { get; set; }
         public int Status { get; set; }
         public int ModifiedBy { get; set; }

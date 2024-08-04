@@ -15,6 +15,8 @@ using ChurchPlus_v1._0.DAL;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChurchPlus_v1._0.Utils;
+using ChurchPlus_v1._0.Middleware;
 
 namespace ChurchPlus_v1._0
 {
@@ -58,6 +60,9 @@ namespace ChurchPlus_v1._0
             services.AddControllers();
             services.AddTransient<ITokenService, TokenService>();
             services.AddTransient<ISecureSignin, CryptoSecureSignin>();
+            services.AddTransient<IFundsManager, IFundsManagerRepository>();
+            services.AddTransient<IUtils, UtilsRepository>();
+            services.AddTransient<ISettings, ISettingsrRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,6 +80,7 @@ namespace ChurchPlus_v1._0
             app.UseAuthorization();
             app.UseAuthentication();
             app.UseCors("ApiCorsPolicy");
+            app.UseSwagger();
             app.UseSwaggerUI(c =>c.SwaggerEndpoint("/swagger/v1/swagger.json","ChurchPlus Ap version 1.0"));
             app.UseEndpoints(endpoints =>
             {
